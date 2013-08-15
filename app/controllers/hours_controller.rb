@@ -10,17 +10,17 @@ class HoursController < ApplicationController
 
   def next
     if @current_day
-      redirect_to :action => 'index', :day => (@current_day + 1).to_s(:param_date)
+      redirect_to :action => 'index', :day => (@current_day + 1).to_s(:param_date), :user_id => params[:user_id]
     else
-      redirect_to :action => 'index', :week => (@week_start + 7).to_s(:param_date)
+      redirect_to :action => 'index', :week => (@week_start + 7).to_s(:param_date), :user_id => params[:user_id]
     end
   end
 
   def prev
     if @current_day
-      redirect_to :action => 'index', :day => (@current_day - 1).to_s(:param_date)
+      redirect_to :action => 'index', :day => (@current_day - 1).to_s(:param_date), :user_id => params[:user_id]
     else
-      redirect_to :action => 'index', :week => (@week_start - 7).to_s(:param_date)
+      redirect_to :action => 'index', :week => (@week_start - 7).to_s(:param_date), :user_id => params[:user_id]
     end
   end
 

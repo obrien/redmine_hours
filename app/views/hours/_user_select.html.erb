@@ -1,0 +1,10 @@
+<% if User.current.admin? %>
+  <strong>Select other user:</strong>
+  <form action="" method="get">
+    <%= select_tag 'user_id', options_from_collection_for_select(User.order("firstname ASC"), "id", "name", params[:user_id]) %>
+    <%= hidden_field_tag 'week', params[:week] if params.has_key? :week %>
+    <%= hidden_field_tag 'day', params[:day] if params.has_key? :day%>
+    <%= submit_tag l('redmine_hours.select_user'), :name => nil %>
+  </form>
+  <hr/>
+<% end %>
